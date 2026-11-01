@@ -485,7 +485,7 @@ function initChatbot() {
     {
       icon: '💬', name: 'Contact Sir',
       questions: [
-        { q: 'How do I start a project with Sir?', a: "Easy — tap the green WhatsApp button (bottom-right) to message Sir directly, or email <a href='mailto:info@pryonx.in'>info@pryonx.in</a>." },
+        { q: 'How do I start a project with Sir?', a: "Easy — tap the green WhatsApp button (bottom-right) to message Sir directly, or email <a href='mailto:debdebadatta7@gmail.com'>debdebadatta7@gmail.com</a>." },
         { q: 'How can I contact Sir?', a: "WhatsApp: <a href='https://wa.me/917683886320' target='_blank' rel='noopener noreferrer'>+91 7683 886 320</a> · Email: <a href='mailto:debdebadatta7@gmail.com'>debdebadatta7@gmail.com</a> · <a href='https://www.linkedin.com/in/er-debadattaa-jena-a13a72300/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>" }
       ]
     }
