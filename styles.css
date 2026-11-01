@@ -733,12 +733,17 @@ body {
 }
 
 .hero-subtitle-box {
-  min-height: 38px;
+  /* Reserve a stable height so the typewriter's changing text length
+     never shifts the layout (prevents mobile up/down jitter).
+     3.4em covers the longest phrase wrapping to 2 lines on laptop widths. */
+  min-height: 3.4em;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   margin-bottom: 22px;
 }
 
 .hero-typed-text {
-  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-size: 1em;
+  line-height: 1.3;
   font-weight: 600;
   color: var(--brand-cyan);
   border-right: 2px solid var(--brand-indigo);
@@ -1951,6 +1956,11 @@ body {
   }
   .hero-title {
     font-size: clamp(2rem, 9vw, 2.6rem);
+  }
+  .hero-subtitle-box {
+    /* Longer phrases wrap to up to 3 lines on narrow screens — reserve that height */
+    min-height: 4.2em;
+    font-size: 1.05rem;
   }
   .hero-description {
     font-size: 1rem;
