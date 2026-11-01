@@ -1,3 +1,5 @@
 # robots.txt — Er. Debadattaa Jena Official Portfolio
 User-agent: *
 Allow: /
+
+Sitemap: https://erdebadattajena.vercel.app/sitemap.xml
