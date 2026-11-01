@@ -1749,7 +1749,7 @@ body {
    ========================================================================== */
 .scroll-top-btn {
   position: fixed;
-  bottom: 32px;
+  bottom: calc(100px + env(safe-area-inset-bottom, 0px));
   right: 32px;
   width: 48px;
   height: 48px;
@@ -1772,6 +1772,62 @@ body {
 .scroll-top-btn:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6);
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP CONSULT BUTTON (always visible — mobile & desktop)
+   ========================================================================== */
+.whatsapp-float {
+  position: fixed;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  right: 28px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  line-height: 1;
+  text-decoration: none;
+  z-index: 9998;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.25s ease;
+}
+.whatsapp-float:hover,
+.whatsapp-float:focus-visible {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 12px 32px rgba(37, 211, 102, 0.6);
+}
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  z-index: -1;
+  animation: waPulse 2s ease-out infinite;
+}
+@keyframes waPulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(1.75); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float::before { animation: none; }
+}
+@media (max-width: 560px) {
+  .whatsapp-float {
+    width: 54px;
+    height: 54px;
+    font-size: 1.75rem;
+    right: 18px;
+  }
+  .scroll-top-btn {
+    right: 21px;
+    bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+  }
 }
 
 /* ==========================================================================
