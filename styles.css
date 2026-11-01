@@ -655,6 +655,7 @@ body {
 
 .portrait-image {
   width: 100%;
+  height: auto;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center;
@@ -1727,6 +1728,8 @@ body {
 
 .footer-links-row {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 20px;
 }
 
@@ -1930,6 +1933,18 @@ body {
 @media (max-width: 400px) {
   .hero-title {
     font-size: 1.9rem;
+  }
+  .portrait-badge strong {
+    font-size: 0.82rem;
+  }
+  .portrait-badge small {
+    font-size: 0.62rem;
+  }
+  .portrait-glass-overlay {
+    padding: 7px 12px;
+    bottom: 6px;
+    gap: 6px;
+    max-width: 84%;
   }
   .metrics-strip-grid {
     grid-template-columns: 1fr;
