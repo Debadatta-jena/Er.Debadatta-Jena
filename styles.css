@@ -655,9 +655,9 @@ body {
 
 .portrait-image {
   width: 100%;
-  aspect-ratio: 4 / 4.8;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: top center;
+  object-position: center top;
   display: block;
   transition: transform 0.5s var(--ease-smooth);
 }
