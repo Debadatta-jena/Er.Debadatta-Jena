@@ -454,47 +454,47 @@ function initChatbot() {
 
   const TOPICS = [
     {
-      icon: '👤', name: 'About me',
+      icon: '👤', name: 'About Sir',
       questions: [
-        { q: 'Who is Er. Debadattaa Jena?', a: "I'm an AI & Machine Learning developer, Python full-stack engineer, and cyber-security practitioner — and the Founder & CEO of <a href='#ventures'>PRYONX and CLYVEXA</a>. I build practical, production-ready AI that solves real business problems." },
-        { q: 'What do you specialize in?', a: 'Custom AI solutions, intelligent automation, AI voice agents, and full-stack web & mobile platforms — grounded in secure, scalable backend engineering.' },
-        { q: 'Where are you based?', a: 'Bhubaneswar, Odisha, India — working remote-first with clients everywhere.' }
+        { q: 'Who is Er. Debadatta Jena?', a: "Sir is Er. Debadatta Jena — an AI & Machine Learning developer, Python full-stack engineer, and cyber-security practitioner, and the Founder & CEO of <a href='#ventures'>PRYONX and CLYVEXA</a>. He builds practical, production-ready AI that solves real business problems." },
+        { q: 'What does Sir specialize in?', a: 'Sir specializes in custom AI solutions, intelligent automation, AI voice agents, and full-stack web & mobile platforms — grounded in secure, scalable backend engineering.' },
+        { q: 'Where is Sir based?', a: 'Sir is based in Bhubaneswar, Odisha, India, and works remote-first with clients everywhere.' }
       ]
     },
     {
-      icon: '🚀', name: 'My ventures',
+      icon: '🚀', name: 'His ventures',
       questions: [
-        { q: 'What is PRYONX?', a: "PRYONX is my AI company — “Your Business Problem. Our AI Solution.” We build custom AI solutions, intelligent automation, AI-powered products, and AI voice agents, designed around real business requirements (problem-first, not AI-first). <a href='https://pryonx.in' target='_blank' rel='noopener noreferrer'>pryonx.in</a>" },
-        { q: 'What is CLYVEXA?', a: "CLYVEXA — “Code. Create. Elevate.” — is an AI & software studio delivering conversational AI, autonomous agents, and modern web, mobile, and cloud platforms. <a href='https://clyvexa-ten.vercel.app' target='_blank' rel='noopener noreferrer'>clyvexa.tech</a>" }
+        { q: 'What is PRYONX?', a: "PRYONX is Sir's AI company — “Your Business Problem. Our AI Solution.” It builds custom AI solutions, intelligent automation, AI-powered products, and AI voice agents, designed around real business requirements (problem-first, not AI-first). <a href='https://pryonx.in' target='_blank' rel='noopener noreferrer'>pryonx.in</a>" },
+        { q: 'What is CLYVEXA?', a: "CLYVEXA — “Code. Create. Elevate.” — is Sir's AI & software studio delivering conversational AI, autonomous agents, and modern web, mobile, and cloud platforms. <a href='https://clyvexa-ten.vercel.app' target='_blank' rel='noopener noreferrer'>clyvexa.tech</a>" }
       ]
     },
     {
-      icon: '🛠️', name: 'What I build',
+      icon: '🛠️', name: 'What Sir builds',
       questions: [
-        { q: 'What services do you offer?', a: 'AI Automation, Custom AI Solutions, AI Product Development, AI Voice Agents & Integration — plus full-stack web/mobile apps, ERP/CRM business systems, and backend & cybersecurity architecture. See <a href="#services">Capabilities</a>.' },
-        { q: 'Can you build an AI voice agent?', a: 'Yes — inbound/outbound AI voice agents that answer calls 24/7, qualify leads, book appointments, and route conversations, with sub-180ms response targets.' },
-        { q: 'What are some systems you have built?', a: 'Flagship projects include <strong>BusinessMate</strong> (an AI-powered ERP/CRM for MSMEs), computer-vision attendance systems, and desktop voice assistants. Browse them under <a href="#projects">Engineered Systems</a>.' }
+        { q: 'What services does Sir offer?', a: 'Sir offers AI Automation, Custom AI Solutions, AI Product Development, AI Voice Agents & Integration — plus full-stack web/mobile apps, ERP/CRM business systems, and backend & cybersecurity architecture. See <a href="#services">Capabilities</a>.' },
+        { q: 'Can Sir build an AI voice agent?', a: 'Yes — Sir builds inbound/outbound AI voice agents that answer calls 24/7, qualify leads, book appointments, and route conversations, with sub-180ms response targets.' },
+        { q: 'What systems has Sir built?', a: 'Sir’s flagship projects include <strong>BusinessMate</strong> (an AI-powered ERP/CRM for MSMEs), computer-vision attendance systems, and desktop voice assistants. Browse them under <a href="#projects">Engineered Systems</a>.' }
       ]
     },
     {
-      icon: '⚙️', name: 'How I work',
+      icon: '⚙️', name: 'How Sir works',
       questions: [
-        { q: 'How do you work on a project?', a: 'A six-step process: Discover → Analyze → Design → Build → Deploy → Improve. I start with your business problem, then choose the right technology — even if that means no AI at all.' },
-        { q: 'Do you offer a free consultation?', a: 'Yes. Sharing your problem and the initial assessment are free — you get clarity on whether AI is even the right answer for you.' }
+        { q: 'How does Sir work on a project?', a: 'Sir follows a six-step process: Discover → Analyze → Design → Build → Deploy → Improve. He starts with your business problem, then chooses the right technology — even if that means no AI at all.' },
+        { q: 'Does Sir offer a free consultation?', a: 'Yes. Sir offers a free initial assessment — you get clarity on whether AI is even the right answer for you.' }
       ]
     },
     {
       icon: '🎓', name: 'Experience',
       questions: [
-        { q: 'What is your experience?', a: 'Full-Stack & Voice AI Engineer at StaxTech, AI/ML roles at 3Skill Training, an AI Solutions developer on the Microsoft Initiative + Edunet + AICTE, a cybersecurity audit at Edureka, and Python full-stack work at Seeree Services — plus 20+ certifications. Full detail in <a href="#experience">Experience</a>.' },
-        { q: 'What are your tech skills?', a: 'Python, Django, React, Node.js, PostgreSQL/MySQL/MongoDB, TensorFlow, scikit-learn, NLP, Azure AI, REST APIs, Linux, and cyber-security.' }
+        { q: 'What is Sir’s experience?', a: 'Sir has hands-on experience across AI/ML engineering, full-stack & voice-AI development, and cybersecurity, built through multiple production projects and 20+ certifications. You can see the full timeline in the <a href="#experience">Experience</a> section.' },
+        { q: 'What are Sir’s tech skills?', a: 'Python, Django, React, Node.js, PostgreSQL/MySQL/MongoDB, TensorFlow, scikit-learn, NLP, Azure AI, REST APIs, Linux, and cyber-security.' }
       ]
     },
     {
-      icon: '💬', name: 'Work with me',
+      icon: '💬', name: 'Contact Sir',
       questions: [
-        { q: 'How do I start a project with you?', a: "Easy — tap the green WhatsApp button (bottom-right) to start a chat instantly, or email <a href='mailto:info@pryonx.in'>info@pryonx.in</a>." },
-        { q: 'How can I contact you?', a: "WhatsApp: <a href='https://wa.me/917683886320' target='_blank' rel='noopener noreferrer'>+91 7683 886 320</a> · Email: <a href='mailto:debdebadatta7@gmail.com'>debdebadatta7@gmail.com</a> · <a href='https://www.linkedin.com/in/er-debadattaa-jena-a13a72300/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>" }
+        { q: 'How do I start a project with Sir?', a: "Easy — tap the green WhatsApp button (bottom-right) to message Sir directly, or email <a href='mailto:info@pryonx.in'>info@pryonx.in</a>." },
+        { q: 'How can I contact Sir?', a: "WhatsApp: <a href='https://wa.me/917683886320' target='_blank' rel='noopener noreferrer'>+91 7683 886 320</a> · Email: <a href='mailto:debdebadatta7@gmail.com'>debdebadatta7@gmail.com</a> · <a href='https://www.linkedin.com/in/er-debadattaa-jena-a13a72300/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>" }
       ]
     }
   ];
@@ -527,7 +527,7 @@ function initChatbot() {
 
   function renderHome() {
     body.innerHTML = '';
-    addMsg('bot', "<p>Hi! I'm the DJ Assistant 👋 — I can answer quick questions about me and my work. Nothing you tap leaves your browser. Pick a topic:</p>");
+    addMsg('bot', "<p>Hello! 👋 I'm the virtual assistant of Er. Debadatta Jena (Sir). I can answer your questions about Sir — his work, ventures, skills, and how to reach him. Nothing you tap leaves your browser. Choose a topic:</p>");
     renderQuick(TOPICS.map(t => ({ label: t.icon + ' ' + t.name, onClick: () => renderTopic(t) })));
   }
 
