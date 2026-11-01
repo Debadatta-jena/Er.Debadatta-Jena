@@ -552,6 +552,7 @@ function initChatbot() {
     toggle.classList.toggle('active', state);
     toggle.setAttribute('aria-expanded', String(state));
     panel.setAttribute('aria-hidden', String(!state));
+    document.body.classList.toggle('chatbot-open', state);
     if (state) {
       renderHome();
       closeBtn.focus();

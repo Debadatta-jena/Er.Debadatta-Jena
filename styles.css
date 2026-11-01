@@ -1754,7 +1754,7 @@ body {
    ========================================================================== */
 .scroll-top-btn {
   position: fixed;
-  bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+  bottom: calc(172px + env(safe-area-inset-bottom, 0px));
   right: 32px;
   width: 48px;
   height: 48px;
@@ -1777,6 +1777,12 @@ body {
 .scroll-top-btn:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 30px rgba(99, 102, 241, 0.6);
+}
+/* Hide scroll-to-top while the chat assistant is open (it sits behind the panel) */
+body.chatbot-open .scroll-top-btn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(0.9);
 }
 
 /* ==========================================================================
@@ -1831,7 +1837,7 @@ body {
   }
   .scroll-top-btn {
     right: 21px;
-    bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(168px + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -2033,8 +2039,8 @@ body {
    ========================================================================== */
 .chatbot-toggle {
   position: fixed;
-  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
-  left: 28px;
+  bottom: calc(100px + env(safe-area-inset-bottom, 0px));
+  right: 28px;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -2077,12 +2083,12 @@ body {
 
 .chatbot-panel {
   position: fixed;
-  bottom: calc(100px + env(safe-area-inset-bottom, 0px));
-  left: 28px;
+  bottom: calc(172px + env(safe-area-inset-bottom, 0px));
+  right: 28px;
   width: 372px;
   max-width: calc(100vw - 32px);
   height: 520px;
-  max-height: calc(100vh - 150px);
+  max-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
   background: rgba(12, 16, 32, 0.92);
@@ -2191,13 +2197,14 @@ body {
 }
 
 @media (max-width: 560px) {
-  .chatbot-toggle { width: 54px; height: 54px; font-size: 1.4rem; left: 18px; }
+  .chatbot-toggle { width: 54px; height: 54px; font-size: 1.4rem; right: 18px; }
   .chatbot-panel {
     left: 12px;
     right: 12px;
     width: auto;
-    bottom: calc(86px + env(safe-area-inset-bottom, 0px));
+    bottom: calc(168px + env(safe-area-inset-bottom, 0px));
     max-width: none;
-    height: 72vh;
+    height: 68vh;
+    max-height: calc(100vh - 210px);
   }
 }
