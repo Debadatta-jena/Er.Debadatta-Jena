@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initTiltGlare();
   initProjectFilters();
   initCollapsiblePanels();
-  initWhatsAppTerminal();
   initChatbot();
   initScrollToTop();
+  initDecorativeA11y();
 });
 
 /* ----------------------------------------------------------------------------
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * ---------------------------------------------------------------------------- */
 function initCursorSpotlight() {
   const spotlight = document.getElementById('cursorSpotlight');
-  if (!spotlight || window.matchMedia('(max-width: 768px)').matches) return;
+  if (!spotlight || window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.matchMedia('(max-width: 768px)').matches) return;
 
   let mouseX = window.innerWidth / 2;
   let mouseY = window.innerHeight / 2;
@@ -57,7 +57,7 @@ function initCursorSpotlight() {
  * ---------------------------------------------------------------------------- */
 function initFluidHeroCanvas() {
   const canvas = document.getElementById('heroCanvas');
-  if (!canvas) return;
+  if (!canvas || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const ctx = canvas.getContext('2d');
   let width = (canvas.width = window.innerWidth);
@@ -244,7 +244,7 @@ function initNavbarBehavior() {
  * ---------------------------------------------------------------------------- */
 function initHeroTyping() {
   const el = document.getElementById('heroTypedText');
-  if (!el) return;
+  if (!el || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
   const phrases = [
     "Founder & CEO at PRYONX & CLYVEXA",
@@ -403,20 +403,12 @@ function initCollapsiblePanels() {
 }
 
 /* ----------------------------------------------------------------------------
- * 10. DIRECT WHATSAPP CONSULTATION HANDLER
+ * 10. DECORATIVE ACCESSIBILITY
+ *   Font Awesome icons are purely decorative here (every labelled control
+ *   already has an aria-label or adjacent text) — hide them from assistive tech.
  * ---------------------------------------------------------------------------- */
-function initWhatsAppTerminal() {
-  // Quick chip click handlers: launch WhatsApp directly with prefilled message
-  document.querySelectorAll('.whatsapp-chip-btn').forEach(chip => {
-    chip.addEventListener('click', (e) => {
-      const msg = chip.getAttribute('data-msg');
-      if (msg) {
-        e.preventDefault();
-        const waUrl = `https://wa.me/917683886320?text=${encodeURIComponent(msg)}`;
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-      }
-    });
-  });
+function initDecorativeA11y() {
+  document.querySelectorAll('i[class*="fa-"]').forEach(ic => ic.setAttribute('aria-hidden', 'true'));
 }
 
 /* ----------------------------------------------------------------------------
