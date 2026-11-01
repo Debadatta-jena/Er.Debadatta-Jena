@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProjectFilters();
   initCollapsiblePanels();
   initWhatsAppTerminal();
+  initChatbot();
   initScrollToTop();
 });
 
@@ -248,8 +249,8 @@ function initHeroTyping() {
   const phrases = [
     "Founder & CEO at PRYONX & CLYVEXA",
     "AI Architect & Systems Engineer",
-    "Autonomous Agent Pipelines & Enterprise Full-Stack",
-    "MSME Business Operating Systems (ERP/CRM)"
+    "Custom AI Solutions & Intelligent Automation",
+    "AI Voice Agents & Full-Stack Engineering"
   ];
 
   let phraseIndex = 0;
@@ -435,5 +436,133 @@ function initScrollToTop() {
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+/* ----------------------------------------------------------------------------
+ * 12. STATIC FAQ CHATBOT (click-to-answer · fully client-side · no backend)
+ *   All content is scripted below. Nothing a visitor taps is sent anywhere —
+ *   no network calls, no storage, resets on refresh.
+ * ---------------------------------------------------------------------------- */
+function initChatbot() {
+  const toggle = document.getElementById('chatbotToggle');
+  const panel = document.getElementById('chatbotPanel');
+  const closeBtn = document.getElementById('chatbotClose');
+  const body = document.getElementById('chatbotBody');
+  const quick = document.getElementById('chatbotQuick');
+  if (!toggle || !panel || !closeBtn || !body || !quick) return;
+
+  const TOPICS = [
+    {
+      icon: '👤', name: 'About me',
+      questions: [
+        { q: 'Who is Er. Debadattaa Jena?', a: "I'm an AI & Machine Learning developer, Python full-stack engineer, and cyber-security practitioner — and the Founder & CEO of <a href='#ventures'>PRYONX and CLYVEXA</a>. I build practical, production-ready AI that solves real business problems." },
+        { q: 'What do you specialize in?', a: 'Custom AI solutions, intelligent automation, AI voice agents, and full-stack web & mobile platforms — grounded in secure, scalable backend engineering.' },
+        { q: 'Where are you based?', a: 'Bhubaneswar, Odisha, India — working remote-first with clients everywhere.' }
+      ]
+    },
+    {
+      icon: '🚀', name: 'My ventures',
+      questions: [
+        { q: 'What is PRYONX?', a: "PRYONX is my AI company — “Your Business Problem. Our AI Solution.” We build custom AI solutions, intelligent automation, AI-powered products, and AI voice agents, designed around real business requirements (problem-first, not AI-first). <a href='https://pryonx.in' target='_blank' rel='noopener noreferrer'>pryonx.in</a>" },
+        { q: 'What is CLYVEXA?', a: "CLYVEXA — “Code. Create. Elevate.” — is an AI & software studio delivering conversational AI, autonomous agents, and modern web, mobile, and cloud platforms. <a href='https://clyvexa-ten.vercel.app' target='_blank' rel='noopener noreferrer'>clyvexa.tech</a>" }
+      ]
+    },
+    {
+      icon: '🛠️', name: 'What I build',
+      questions: [
+        { q: 'What services do you offer?', a: 'AI Automation, Custom AI Solutions, AI Product Development, AI Voice Agents & Integration — plus full-stack web/mobile apps, ERP/CRM business systems, and backend & cybersecurity architecture. See <a href="#services">Capabilities</a>.' },
+        { q: 'Can you build an AI voice agent?', a: 'Yes — inbound/outbound AI voice agents that answer calls 24/7, qualify leads, book appointments, and route conversations, with sub-180ms response targets.' },
+        { q: 'What are some systems you have built?', a: 'Flagship projects include <strong>BusinessMate</strong> (an AI-powered ERP/CRM for MSMEs), computer-vision attendance systems, and desktop voice assistants. Browse them under <a href="#projects">Engineered Systems</a>.' }
+      ]
+    },
+    {
+      icon: '⚙️', name: 'How I work',
+      questions: [
+        { q: 'How do you work on a project?', a: 'A six-step process: Discover → Analyze → Design → Build → Deploy → Improve. I start with your business problem, then choose the right technology — even if that means no AI at all.' },
+        { q: 'Do you offer a free consultation?', a: 'Yes. Sharing your problem and the initial assessment are free — you get clarity on whether AI is even the right answer for you.' }
+      ]
+    },
+    {
+      icon: '🎓', name: 'Experience',
+      questions: [
+        { q: 'What is your experience?', a: 'Full-Stack & Voice AI Engineer at StaxTech, AI/ML roles at 3Skill Training, an AI Solutions developer on the Microsoft Initiative + Edunet + AICTE, a cybersecurity audit at Edureka, and Python full-stack work at Seeree Services — plus 20+ certifications. Full detail in <a href="#experience">Experience</a>.' },
+        { q: 'What are your tech skills?', a: 'Python, Django, React, Node.js, PostgreSQL/MySQL/MongoDB, TensorFlow, scikit-learn, NLP, Azure AI, REST APIs, Linux, and cyber-security.' }
+      ]
+    },
+    {
+      icon: '💬', name: 'Work with me',
+      questions: [
+        { q: 'How do I start a project with you?', a: "Easy — tap the green WhatsApp button (bottom-right) to start a chat instantly, or email <a href='mailto:info@pryonx.in'>info@pryonx.in</a>." },
+        { q: 'How can I contact you?', a: "WhatsApp: <a href='https://wa.me/917683886320' target='_blank' rel='noopener noreferrer'>+91 7683 886 320</a> · Email: <a href='mailto:debdebadatta7@gmail.com'>debdebadatta7@gmail.com</a> · <a href='https://www.linkedin.com/in/er-debadattaa-jena-a13a72300/' target='_blank' rel='noopener noreferrer'>LinkedIn</a>" }
+      ]
+    }
+  ];
+
+  let isOpen = false;
+
+  function addMsg(role, content) {
+    const div = document.createElement('div');
+    div.className = 'cb-msg ' + (role === 'user' ? 'cb-user' : 'cb-bot');
+    if (role === 'user') {
+      div.textContent = content;
+    } else {
+      div.innerHTML = content;
+    }
+    body.appendChild(div);
+    body.scrollTop = body.scrollHeight;
+  }
+
+  function renderQuick(items) {
+    quick.innerHTML = '';
+    items.forEach(it => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'cb-chip';
+      btn.textContent = it.label;
+      btn.addEventListener('click', it.onClick);
+      quick.appendChild(btn);
+    });
+  }
+
+  function renderHome() {
+    body.innerHTML = '';
+    addMsg('bot', "<p>Hi! I'm the DJ Assistant 👋 — I can answer quick questions about me and my work. Nothing you tap leaves your browser. Pick a topic:</p>");
+    renderQuick(TOPICS.map(t => ({ label: t.icon + ' ' + t.name, onClick: () => renderTopic(t) })));
+  }
+
+  function renderTopic(t) {
+    addMsg('bot', '<p>' + t.name + ' — pick a question:</p>');
+    const chips = t.questions.map(q => ({ label: q.q, onClick: () => answer(t, q) }));
+    chips.push({ label: '← Back to topics', onClick: renderHome });
+    renderQuick(chips);
+  }
+
+  function answer(t, q) {
+    addMsg('user', q.q);
+    addMsg('bot', '<p>' + q.a + '</p>');
+    const chips = t.questions.filter(x => x !== q).map(x => ({ label: x.q, onClick: () => answer(t, x) }));
+    chips.push({ label: '🏠 Topics', onClick: renderHome });
+    renderQuick(chips);
+  }
+
+  function setOpen(state) {
+    isOpen = state;
+    panel.classList.toggle('open', state);
+    toggle.classList.toggle('active', state);
+    toggle.setAttribute('aria-expanded', String(state));
+    panel.setAttribute('aria-hidden', String(!state));
+    if (state) {
+      renderHome();
+      closeBtn.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+
+  toggle.addEventListener('click', () => setOpen(!isOpen));
+  closeBtn.addEventListener('click', () => setOpen(false));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) setOpen(false);
   });
 }
