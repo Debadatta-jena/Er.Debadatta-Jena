@@ -1,0 +1,3 @@
+# robots.txt — Er. Debadattaa Jena Official Portfolio
+User-agent: *
+Allow: /
