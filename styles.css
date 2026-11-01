@@ -631,7 +631,7 @@ body {
   position: absolute;
   inset: -15px;
   background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.4) 0%, rgba(6, 182, 212, 0.25) 50%, transparent 75%);
-  border-radius: 36px;
+  border-radius: 50%;
   filter: blur(24px);
   z-index: 0;
   opacity: 0.85;
@@ -646,10 +646,10 @@ body {
 .portrait-frame {
   position: relative;
   z-index: 1;
-  border-radius: 26px;
+  border-radius: 50%;
   background: var(--bg-surface);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  overflow: hidden;
+  overflow: visible;
   box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85), 0 0 35px -5px rgba(99, 102, 241, 0.35);
 }
 
@@ -657,7 +657,8 @@ body {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center top;
+  object-position: center;
+  border-radius: 50%;
   display: block;
   transition: transform 0.5s var(--ease-smooth);
 }
@@ -668,15 +669,17 @@ body {
 
 .portrait-glass-overlay {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 92%;
   background: rgba(6, 10, 22, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.14);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-radius: var(--radius-md);
-  padding: 12px 16px;
+  border-radius: var(--radius-pill);
+  padding: 10px 18px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 }
 
